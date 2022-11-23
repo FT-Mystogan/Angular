@@ -1,0 +1,35 @@
+<div class="test">
+    <h3>Đây là component Home</h3>
+    <h1>Trái cây</h1>
+    <!-- <div *ngFor="let trai of traiCay; let i = index">
+        <li>{{ i + 1 }}.{{trai}}</li>
+    </div> -->
+    <br>
+    <table id="table1">
+        <tr>
+            <th>STT</th>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Đại hạ giá</th>
+        </tr>
+        <tr *ngFor="let trai of traiCay;let i = index">
+            <td>{{i+1}}</td>
+            <td>{{trai.name}}</td>
+            <td [ngClass]="{'so-am': trai.price <0}">{{trai.price | onSale:'$':2}}</td>
+            <td>{{trai.discount == true ? 'Đại hạ giá' : 'Méo hạ giá'}}</td>
+        </tr>
+    </table>
+    <select name="city" id="city" (change)="changeCity($event)">
+        <option *ngFor="let city of cities" value={{city.city}}>{{city.city}}</option>
+    </select>
+    <select name="district" id="district">
+        <!-- <option *ngFor="let district of districts" value={{district}}>{{district}}</option> -->
+        <div *ngIf="default ; then notdistrict else district"></div>
+        <ng-template #district>
+            <option *ngFor="let district of districts" value={{district}}>{{district}}</option>
+        </ng-template>
+        <ng-template #notdistrict>
+            <option value="">Quận/Huyện</option>
+        </ng-template>
+    </select>
+</div>
