@@ -1,3 +1,23 @@
 <h1>Hello World !</h1>
 <h2>Welcome to angular12</h2>
-<app-home></app-home>
+<h1>Angular Router App</h1>
+<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
+<nav>
+  <ul>
+    <li><a routerLink="/first-component" routerLinkActive="active" ariaCurrentWhenActive="page">First Component</a></li>
+    <li><a routerLink="/second-component" routerLinkActive="active" ariaCurrentWhenActive="page">Second Component</a>
+    </li>
+    <li>
+      <a routerLink="/template-driven-form" routerLinkActive="active" ariaCurrentWhenActive="page">Template Driven
+        Form</a>
+    </li>
+    <li>
+      <a routerLink="/reactive-form" routerLinkActive="active" ariaCurrentWhenActive="page">Reactive Form</a>
+    </li>
+    <li>
+      <a routerLink="/get-data" routerLinkActive="active" ariaCurrentWhenActive="page">Get Data</a>
+    </li>
+  </ul>
+</nav>
+<!-- The routed views render in the <router-outlet>-->
+<router-outlet></router-outlet>
